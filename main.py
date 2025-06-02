@@ -14,3 +14,15 @@ class AddRequest(BaseModel):
 def add_numbers(req: AddRequest):
     result = add_two_numbers(req.a, req.b)
     return {"result": result}
+
+from fastapi.middleware.cors import CORSMiddleware
+
+app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["https://yourstore.myshopify.com"],  # or ["*"] for testing
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
