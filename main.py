@@ -27,3 +27,8 @@ def add_numbers(req: AddRequest):
     result = add_two_numbers(req.a, req.b)
     print("hi")
     return {"result": result}
+
+@app.get("/")
+def root():
+    return {"message": "FastAPI is running!"}
+
